@@ -1,0 +1,105 @@
+{
+  "categories": [
+    { "id": 1, "name": "Electronics" },
+    { "id": 2, "name": "Accessories" },
+    { "id": 3, "name": "Home" },
+    { "id": 4, "name": "Clothing" },
+    { "id": 5, "name": "Books" }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Laptop 14\"",
+      "description": "Lightweight laptop",
+      "categoryId": 1,
+      "price": 59999,
+      "stock": 5,
+      "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=464"
+    },
+    {
+      "id": 2,
+      "title": "Wireless Headphones",
+      "description": "Noise-cancelling",
+      "categoryId": 2,
+      "price": 2499,
+      "stock": 0,
+      "image": "https://images.unsplash.com/photo-1733041055704-da53567e49da?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870"
+    },
+    {
+      "id": 3,
+      "title": "Ceramic Mug",
+      "description": "Handmade mug",
+      "categoryId": 3,
+      "price": 399,
+      "stock": 12,
+      "image": "https://plus.unsplash.com/premium_photo-1667621221177-a10b4fb30b08?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387"
+    },
+    {
+      "id": 4,
+      "title": "Smartwatch",
+      "description": "Fitness tracker and notifications",
+      "categoryId": 1,
+      "price": 19999,
+      "stock": 8,
+      "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764"
+    },
+    {
+      "id": 5,
+      "title": "Gaming Mouse",
+      "description": "High precision gaming mouse",
+      "categoryId": 1,
+      "price": 2999,
+      "stock": 15,
+      "image": "https://images.unsplash.com/photo-1616296425622-4560a2ad83de?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=713"
+    },
+    {
+      "id": 6,
+      "title": "External SSD 1TB",
+      "description": "Fast and portable storage",
+      "categoryId": 1,
+      "price": 8999,
+      "stock": 10,
+      "image": "https://images.unsplash.com/photo-1610415394675-22121ca0de23?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870"
+    },
+    {
+      "id": 7,
+      "title": "T-Shirt",
+      "description": "Cotton casual tee",
+      "categoryId": 4,
+      "price": 699,
+      "stock": 25,
+      "image": "..."
+    },
+    {
+      "id": 8,
+      "title": "Novel - The Alchemist",
+      "description": "Best-selling fiction",
+      "categoryId": 5,
+      "price": 499,
+      "stock": 10,
+      "image": "..."
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userEmail": "test@example.com",
+      "items": [
+        { "productId": 1, "title": "Laptop 14\"", "qty": 1, "price": 59999 }
+      ],
+      "address": "Home address",
+      "status": "On Process",
+      "createdAt": "2025-10-22T10:00:00.000Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "user_1",
+      "email": "test@example.com",
+      "name": "Test User",
+      "addresses": ["Home address"]
+    }
+  ],
+  "wishlists": [{ "userId": "user_1", "productIds": [3] }],
+  "carts": [{ "userId": "user_1", "items": [{ "productId": 1, "qty": 1 }] }]
+}
