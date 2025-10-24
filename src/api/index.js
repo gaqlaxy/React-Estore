@@ -83,3 +83,81 @@ export async function fetchProductsByIds(ids) {
   const res = await fetch(`${BASE_URL}/products?${queries}`);
   return await res.json();
 }
+
+export async function placeOrder(userId, userEmail, cartItems, address) {
+  const res = await fetch(`${BASE_URL}/orders`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      userEmail,
+      items: cartItems,
+      address,
+      status: "On Process",
+      createdAt: new Date().toISOString(),
+    }),
+  });
+
+  if (!res.ok) throw new Error("Failed to create order");
+
+  // Clear the cart
+  const cartRes = await fetch(`${BASE_URL}/carts?userId=${userId}`);
+  const carts = await cartRes.json();
+  if (carts.length) {
+    await fetch(`${BASE_URL}/carts/${carts[0].id}`, { method: "DELETE" });
+  }
+
+  return await res.json();
+}
+
+// Remove an item from cart
+export async function removeFromCart(userId, productId) {
+  const res = await fetch(`${BASE_URL}/carts?userId=${userId}`);
+  const carts = await res.json();
+  if (!carts.length) return;
+
+  const cart = carts[0];
+  cart.items = cart.items.filter((i) => i.productId !== productId);
+
+  await fetch(`${BASE_URL}/carts/${cart.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(cart),
+  });
+}
+
+// Update cart item quantity
+export async function updateCartItem(userId, productId, qty) {
+  const res = await fetch(`${BASE_URL}/carts?userId=${userId}`);
+  const carts = await res.json();
+  if (!carts.length) return;
+
+  const cart = carts[0];
+  const item = cart.items.find((i) => i.productId === productId);
+  if (!item) return;
+
+  item.qty = qty;
+  if (item.qty <= 0) {
+    cart.items = cart.items.filter((i) => i.productId !== productId);
+  }
+
+  await fetch(`${BASE_URL}/carts/${cart.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(cart),
+  });
+}
+
+export async function removeFromWishlist(userId, productId) {
+  const res = await fetch(`${BASE_URL}/wishlists?userId=${userId}`);
+  const data = await res.json();
+  if (!data.length) return;
+
+  const wishlist = data[0];
+  wishlist.productIds = wishlist.productIds.filter((id) => id !== productId);
+
+  await fetch(`${BASE_URL}/wishlists/${wishlist.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(wishlist),
+  });
+}

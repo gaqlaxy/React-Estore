@@ -237,7 +237,7 @@ export default function Products() {
 
       <CategoryFilter onCategorySelect={setSelectedCategory} />
 
-      <div
+      {/* <div
         className="product-grid"
         style={{
           display: "grid",
@@ -254,6 +254,16 @@ export default function Products() {
             onAddToWishlist={
               wishlist.includes(prod.id) ? null : handleAddToWishlist
             }
+          />
+        ))}
+      </div> */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {displayedProducts.map((prod) => (
+          <ProductCard
+            key={prod.id}
+            product={prod}
+            onAddToCart={handleAddToCart}
+            onAddToWishlist={handleAddToWishlist}
           />
         ))}
       </div>
