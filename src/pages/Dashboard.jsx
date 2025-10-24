@@ -1,15 +1,3 @@
-// import React from "react";
-
-// export default function Dashboard({ user }) {
-//   return (
-//     <div style={{ padding: "2rem" }}>
-//       <h2>Welcome, {user.displayName}</h2>
-//       <p>Email: {user.email}</p>
-//       <p>Your personalized dashboard will appear here soon.</p>
-//     </div>
-//   );
-// }
-
 import React, { useState } from "react";
 import Wishlist from "../components/Wishlist";
 import Cart from "../components/Cart";
