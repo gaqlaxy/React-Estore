@@ -181,3 +181,29 @@ export async function updateOrderStatus(orderId, newStatus) {
 export async function deleteOrder(orderId) {
   await fetch(`http://localhost:5000/orders/${orderId}`, { method: "DELETE" });
 }
+
+export async function fetchAddresses(userId) {
+  const res = await fetch(`http://localhost:5000/addresses?userId=${userId}`);
+  if (!res.ok) throw new Error("Failed to fetch addresses");
+  return await res.json();
+}
+
+export async function addAddress(userId, addressData) {
+  const payload = { ...addressData, userId };
+  const res = await fetch("http://localhost:5000/addresses", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error("Failed to add address");
+  return await res.json();
+}
+
+export async function clearCart(userId) {
+  const res = await fetch(`http://localhost:5000/cart?userId=${userId}`);
+  const cartItems = await res.json();
+
+  for (const item of cartItems) {
+    await fetch(`http://localhost:5000/cart/${item.id}`, { method: "DELETE" });
+  }
+}

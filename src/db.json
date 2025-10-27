@@ -102,7 +102,6 @@
       "status": "Delivered",
       "createdAt": "2025-10-22T10:00:00.000Z"
     },
-
     {
       "userEmail": "contactfeprakash@gmail.com",
       "items": [
@@ -117,6 +116,94 @@
       "status": "Shipped",
       "createdAt": "2025-10-27T08:20:52.982Z",
       "id": 7
+    },
+    {
+      "userEmail": "v4vripper@gmail.com",
+      "items": [
+        {
+          "productId": 1,
+          "qty": 1,
+          "title": "Laptop 14\"",
+          "price": 59999
+        },
+        {
+          "productId": 3,
+          "qty": 1,
+          "title": "Ceramic Mug",
+          "price": 399
+        }
+      ],
+      "address": "Home address",
+      "status": "Shipped",
+      "createdAt": "2025-10-27T08:55:01.933Z",
+      "id": 8
+    },
+    {
+      "userEmail": "contactfeprakash@gmail.com",
+      "items": [
+        {
+          "productId": 3,
+          "qty": 1,
+          "title": "Ceramic Mug",
+          "price": 399
+        }
+      ],
+      "address": "Home address",
+      "status": "On Process",
+      "createdAt": "2025-10-27T09:05:37.260Z",
+      "id": 9
+    },
+    {
+      "userEmail": "contactfeprakash@gmail.com",
+      "items": [
+        {
+          "productId": 4,
+          "qty": 1,
+          "title": "Galaxy Smartwatch",
+          "price": 19999
+        }
+      ],
+      "address": "sdads",
+      "status": "On Process",
+      "createdAt": "2025-10-27T09:09:09.164Z",
+      "id": 10
+    },
+    {
+      "userEmail": "contactfeprakash@gmail.com",
+      "items": [
+        {
+          "productId": 3,
+          "qty": 1,
+          "title": "Ceramic Mug",
+          "price": 399
+        }
+      ],
+      "address": "Prakash, dfsf, sdf",
+      "status": "On Process",
+      "createdAt": "2025-10-27T09:14:04.515Z",
+      "id": 11
+    }
+  ],
+  "addresses": [
+    {
+      "id": 1,
+      "userId": "user_1",
+      "name": "Home",
+      "street": "123 Main Street",
+      "city": "Chennai",
+      "state": "TN",
+      "pincode": "600001",
+      "phone": "9876543210"
+    },
+    {
+      "id": 2,
+      "userId": "user_1",
+      "name": "Office",
+      "street": "Tech Park, OMR",
+      "city": "Chennai",
+      "state": "TN",
+      "pincode": "600097",
+      "phone": "9998887776"
     }
   ],
   "users": [
@@ -124,14 +211,18 @@
       "id": "user_1",
       "email": "test@example.com",
       "name": "Test User",
-      "addresses": ["Home address"]
+      "addresses": [
+        "Home address"
+      ]
     }
   ],
   "wishlists": [
     {
       "id": 1,
       "userId": "user_1",
-      "productIds": [3]
+      "productIds": [
+        3
+      ]
     }
   ],
   "carts": [

@@ -8,6 +8,7 @@ import useAuth from "./hooks/useAuth";
 import AdminPanel from "./pages/AdminPanel";
 import AdminOrders from "./pages/AdminOrders";
 import AdminRoute from "./components/AdminRoute";
+import Checkout from "./pages/Checkout";
 
 export default function App() {
   const { user, loading, userRole } = useAuth();
@@ -131,6 +132,10 @@ export default function App() {
               <AdminOrders />
             </AdminRoute>
           }
+        />
+        <Route
+          path="/checkout"
+          element={user ? <Checkout /> : <h2>Please login to continue.</h2>}
         />
       </Routes>
     </>

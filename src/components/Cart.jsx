@@ -1,127 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import {
-//   fetchCart,
-//   fetchProductsByIds,
-//   addToCart,
-//   removeFromCart,
-//   updateCartItem,
-//   placeOrder,
-// } from "../api";
-// import useAuth from "../hooks/useAuth";
-
-// export default function Cart() {
-//   const { user } = useAuth();
-//   const [cartItems, setCartItems] = useState([]);
-//   const [products, setProducts] = useState([]);
-
-//   // Load cart
-//   useEffect(() => {
-//     async function loadCart() {
-//       if (!user) return;
-
-//       const items = await fetchCart(user.uid);
-//       setCartItems(items);
-
-//       const productIds = items.map((i) => i.productId);
-//       const prods = await fetchProductsByIds(productIds);
-//       setProducts(prods);
-//     }
-//     loadCart();
-//   }, [user]);
-
-//   // Update cart locally after API change
-//   const refreshCart = async () => {
-//     if (!user) return;
-//     const items = await fetchCart(user.uid);
-//     setCartItems(items);
-//   };
-
-//   const handleCheckout = async () => {
-//     if (!user) return alert("Please login first!");
-//     if (!cartItems.length) return alert("Cart is empty!");
-
-//     try {
-//       await placeOrder(user.uid, user.email, cartItems, "Home address");
-//       alert("Order placed successfully!");
-//       setCartItems([]);
-//       setProducts([]);
-//     } catch (err) {
-//       console.error(err);
-//       alert("Failed to place order");
-//     }
-//   };
-
-//   const handleRemove = async (productId) => {
-//     await removeFromCart(user.uid, productId);
-//     refreshCart();
-//   };
-
-//   const handleQtyChange = async (productId, qty) => {
-//     if (qty < 1) return;
-//     await updateCartItem(user.uid, productId, qty);
-//     refreshCart();
-//   };
-
-//   const calculateTotal = () => {
-//     return cartItems.reduce((sum, item) => {
-//       const prod = products.find((p) => p.id === item.productId);
-//       return sum + (prod?.price || 0) * item.qty;
-//     }, 0);
-//   };
-
-//   if (!cartItems.length) return <p>Your cart is empty</p>;
-
-//   return (
-//     <div>
-//       <ul className="space-y-4">
-//         {cartItems.map((item) => {
-//           const prod = products.find((p) => p.id === item.productId);
-//           return (
-//             <li
-//               key={item.productId}
-//               className="flex items-center gap-4 border p-4 rounded-lg hover:shadow-md transition-shadow duration-300"
-//             >
-//               <img
-//                 src={prod?.image}
-//                 alt={prod?.title}
-//                 className="w-20 h-20 object-cover rounded"
-//               />
-//               <div className="flex-1">
-//                 <h4 className="font-semibold">{prod?.title}</h4>
-//                 <p>Qty: {item.qty}</p>
-//               </div>
-//               <p className="font-bold">₹{item.qty * prod?.price}</p>
-
-//               <div style={{ marginTop: "0.5rem" }}>
-//                 <button
-//                   onClick={() => handleQtyChange(item.productId, item.qty - 1)}
-//                 >
-//                   -
-//                 </button>
-//                 <span style={{ margin: "0 0.5rem" }}>{item.qty}</span>
-//                 <button
-//                   onClick={() => handleQtyChange(item.productId, item.qty + 1)}
-//                 >
-//                   +
-//                 </button>
-//                 <button
-//                   onClick={() => handleRemove(item.productId)}
-//                   style={{ marginLeft: "1rem", color: "red" }}
-//                 >
-//                   Remove
-//                 </button>
-//               </div>
-//             </li>
-//           );
-//         })}
-//       </ul>
-
-//       <h4>Total: ₹{calculateTotal()}</h4>
-//       <button onClick={handleCheckout}>Checkout</button>
-//     </div>
-//   );
-// }
-
 import React, { useState, useEffect } from "react";
 import {
   fetchCart,
@@ -131,8 +7,10 @@ import {
   placeOrder,
 } from "../api";
 import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
@@ -271,11 +149,17 @@ export default function Cart() {
         <h4 className="text-xl font-semibold mb-2">
           Total: ₹{calculateTotal()}
         </h4>
-        <button
+        {/* <button
           onClick={handleCheckout}
           className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
         >
           Checkout
+        </button> */}
+        <button
+          onClick={() => navigate("/checkout")}
+          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+        >
+          Proceed to Checkout
         </button>
       </div>
     </div>
