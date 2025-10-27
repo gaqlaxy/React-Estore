@@ -15,3 +15,5 @@ export const getOrdersByUser = (email) =>
   API.get("/orders", { params: { userEmail: email } });
 
 // export default API;
+
+// Get all orders

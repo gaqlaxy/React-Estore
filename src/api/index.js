@@ -161,3 +161,23 @@ export async function removeFromWishlist(userId, productId) {
     body: JSON.stringify(wishlist),
   });
 }
+
+export async function fetchAllOrders() {
+  const res = await fetch("http://localhost:5000/orders");
+  return res.json();
+}
+
+// Update order status
+export async function updateOrderStatus(orderId, newStatus) {
+  const res = await fetch(`http://localhost:5000/orders/${orderId}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status: newStatus }),
+  });
+  return res.json();
+}
+
+// Delete an order
+export async function deleteOrder(orderId) {
+  await fetch(`http://localhost:5000/orders/${orderId}`, { method: "DELETE" });
+}

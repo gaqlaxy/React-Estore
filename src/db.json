@@ -51,7 +51,7 @@
     },
     {
       "id": 4,
-      "title": "Smartwatch",
+      "title": "Galaxy Smartwatch",
       "description": "Fitness tracker and notifications",
       "categoryId": 1,
       "price": 19999,
@@ -77,22 +77,13 @@
       "image": "https://images.unsplash.com/photo-1610415394675-22121ca0de23?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870"
     },
     {
-      "id": 7,
-      "title": "T-Shirt",
-      "description": "Cotton casual tee",
-      "categoryId": 4,
-      "price": 699,
-      "stock": 25,
-      "image": "..."
-    },
-    {
-      "id": 8,
-      "title": "Novel - The Alchemist",
-      "description": "Best-selling fiction",
-      "categoryId": 5,
-      "price": 499,
-      "stock": 10,
-      "image": "..."
+      "title": "Processor",
+      "description": "AMD Ryzen 5 ",
+      "price": 15000,
+      "stock": 2,
+      "categoryId": 1,
+      "image": "https://m.media-amazon.com/images/I/61c6fimxtXL._SL1500_.jpg",
+      "id": 9
     }
   ],
   "orders": [
@@ -108,72 +99,24 @@
         }
       ],
       "address": "Home address",
-      "status": "On Process",
+      "status": "Delivered",
       "createdAt": "2025-10-22T10:00:00.000Z"
     },
+
     {
       "userEmail": "contactfeprakash@gmail.com",
       "items": [
         {
           "productId": 3,
-          "qty": 1
-        },
-        {
-          "productId": 4,
-          "qty": 1
+          "qty": 1,
+          "title": "Ceramic Mug",
+          "price": 399
         }
       ],
       "address": "Home address",
-      "status": "On Process",
-      "createdAt": "2025-10-24T06:48:05.664Z",
-      "id": 2
-    },
-    {
-      "userEmail": "contactfeprakash@gmail.com",
-      "items": [
-        {
-          "productId": 3,
-          "qty": 1
-        },
-        {
-          "productId": 4,
-          "qty": 1
-        }
-      ],
-      "address": "Home address",
-      "status": "On Process",
-      "createdAt": "2025-10-24T06:48:06.399Z",
-      "id": 3
-    },
-    {
-      "userEmail": "contactfeprakash@gmail.com",
-      "items": [
-        {
-          "productId": 3,
-          "qty": 1
-        },
-        {
-          "productId": 4,
-          "qty": 1
-        }
-      ],
-      "address": "Home address",
-      "status": "On Process",
-      "createdAt": "2025-10-24T06:48:06.632Z",
-      "id": 4
-    },
-    {
-      "userEmail": "contactfeprakash@gmail.com",
-      "items": [
-        {
-          "productId": 3,
-          "qty": 1
-        }
-      ],
-      "address": "Home address",
-      "status": "On Process",
-      "createdAt": "2025-10-24T06:51:44.072Z",
-      "id": 5
+      "status": "Shipped",
+      "createdAt": "2025-10-27T08:20:52.982Z",
+      "id": 7
     }
   ],
   "users": [
@@ -181,25 +124,14 @@
       "id": "user_1",
       "email": "test@example.com",
       "name": "Test User",
-      "addresses": [
-        "Home address"
-      ]
+      "addresses": ["Home address"]
     }
   ],
   "wishlists": [
     {
       "id": 1,
       "userId": "user_1",
-      "productIds": [
-        3
-      ]
-    },
-    {
-      "userId": "dcmRZcmOu3RTvy59qZqcVEUbQDF3",
-      "productIds": [
-        4
-      ],
-      "id": 2
+      "productIds": [3]
     }
   ],
   "carts": [
@@ -212,16 +144,6 @@
           "qty": 1
         }
       ]
-    },
-    {
-      "userId": "dcmRZcmOu3RTvy59qZqcVEUbQDF3",
-      "items": [
-        {
-          "productId": 3,
-          "qty": 1
-        }
-      ],
-      "id": 2
     }
   ]
 }
