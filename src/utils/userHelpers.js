@@ -8,10 +8,9 @@ export const createOrFetchUserDoc = async (user) => {
   const userSnap = await getDoc(userRef);
 
   if (!userSnap.exists()) {
-    // New user → create Firestore document
     await setDoc(userRef, {
       email: user.email,
-      role: "user", // default role
+      role: "user",
     });
   }
 

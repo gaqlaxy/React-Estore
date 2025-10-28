@@ -33,20 +33,6 @@ export default function Cart() {
     setCartItems(items);
   };
 
-  // const handleCheckout = async () => {
-  //   if (!user) return alert("Please login first!");
-  //   if (!cartItems.length) return alert("Cart is empty!");
-  //   try {
-  //     await placeOrder(user.uid, user.email, cartItems, "Home address");
-  //     alert("Order placed successfully!");
-  //     setCartItems([]);
-  //     setProducts([]);
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert("Failed to place order");
-  //   }
-  // };
-
   const handleCheckout = async () => {
     if (!user) return alert("Please login first!");
     if (!cartItems.length) return alert("Cart is empty!");

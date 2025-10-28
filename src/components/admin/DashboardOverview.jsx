@@ -13,7 +13,6 @@ const DashboardOverview = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        // Adjust port if your json-server runs on something else
         const baseURL = "http://localhost:5000";
 
         const [productsRes, ordersRes, usersRes] = await Promise.all([

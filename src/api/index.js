@@ -1,5 +1,4 @@
-// Add product to cart
-const BASE_URL = "http://localhost:5000"; // your json-server URL
+const BASE_URL = "http://localhost:5000";
 
 export async function addToCart(userId, product) {
   const res = await fetch(`${BASE_URL}/carts?userId=${userId}`);

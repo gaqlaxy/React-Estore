@@ -14,7 +14,7 @@ export default function App() {
   const { user, loading, userRole } = useAuth();
   const navigate = useNavigate();
 
-  if (loading) return <p>Loading...</p>; // Prevent flash before Firebase resolves
+  if (loading) return <p>Loading...</p>;
 
   const handleLogout = async () => {
     await signOut(auth);

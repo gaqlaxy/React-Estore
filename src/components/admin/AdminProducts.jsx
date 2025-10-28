@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 
-const API_URL = "http://localhost:5000/products"; // change if your json-server port differs
+const API_URL = "http://localhost:5000/products";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
