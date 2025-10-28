@@ -53,6 +53,14 @@ export default function App() {
                   Admin Panel
                 </Link>
               )}
+              {userRole === "admin" && (
+                <Link
+                  to="/admin/orders"
+                  style={{ marginRight: "1rem", color: "red" }}
+                >
+                  Admin Orders
+                </Link>
+              )}
             </>
           )}
         </div>
@@ -128,9 +136,15 @@ export default function App() {
         <Route
           path="/admin/orders"
           element={
-            <AdminRoute>
-              <AdminOrders />
-            </AdminRoute>
+            user && userRole === "admin" ? (
+              <AdminRoute>
+                <AdminOrders />
+              </AdminRoute>
+            ) : (
+              <h2 style={{ textAlign: "center", marginTop: "50px" }}>
+                🚫 Access Denied — Admins Only
+              </h2>
+            )
           }
         />
         <Route
